@@ -1,0 +1,46 @@
+﻿<!-- EJERCICIO 55 (EJERCICIO 18) – Crear un código HTML+CSS+JavaScript que pida introducir un número del 1 al 10, que pueda verificar si el número introducido esté dentro del rango válido, y si el número no está dentro del rango válido, se pedirá que se introduzca nuevamente. Una vez que el número introducido es válido, se mostrarán todos los números desde 1 hasta el número introducido. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mostrar los números del 1 al número introducido</title>
+    <style>
+        body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+        }
+		input, button {
+			font-size: 20px;
+		}
+		#resultado {
+			margin-top: 20px;
+			margin-bottom: 20px;
+			font-weight: bold;
+        }
+	</style>
+</head>
+<body>
+    <h1>Mostrar los números del 1 al número introducido</h1>
+    <p>Introduzca un número del 1 al 10:</p>
+    <input type="number" id="numero" placeholder="Introduzca un número" min="1" max="10">
+    <button onclick="mostrarNumeros()">Enviar</button>
+    <div id="resultado"></div>
+    <script type="text/javascript">
+        function mostrarNumeros() {
+            let numero = document.getElementById("numero").value;
+            let resultado = document.getElementById("resultado");
+            if (numero >= 1 && numero <= 10) {
+                var numeros = "";
+                for (var i = 1; i <= numero; i++) {
+                    numeros += i + " ";
+                }
+                resultado.innerHTML = "Números del 1 al " + numero + ": " + numeros;
+            } else {
+                resultado.innerHTML = "Por favor, introduzca un número válido del 1 al 10.";
+            }
+        }
+    </script>
+</body>
+</html>

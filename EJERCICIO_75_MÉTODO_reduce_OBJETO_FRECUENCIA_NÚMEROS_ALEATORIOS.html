@@ -1,0 +1,51 @@
+﻿<!-- EJERCICIO 75: Crear un código HTML+CSS+JavaScript, con el método "reduce", que calcule el objeto de frecuencias de los elementos, generados aleatoriamente, de un array. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objeto de Frecuencias</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    #resultado {
+      font-size: 20px;
+      font-weight: bold;
+      color: #444;
+    }
+    #numeros {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Objeto de Frecuencias</h1>
+  <div id="items"></div>
+  <script>
+    const numbers = [];
+    const arrayLength = 5; // Tamaño del array
+    for (let i = 0; i < arrayLength; i++) { // Rellenará el array "numbers" con 5 números aleatorios comprendidos entre 1 y 10 (ambos incluidos).
+        const randomNumber = Math.floor(Math.random() * 10) + 1;
+        // "Match.random()" generará números aleatorios, en este caso, un número aleatorio entero comprendido entre 1 y 10 (ambos incluidos).
+        // "Match.floor()" redondeará hacia abajo o por defecto al entero más cercano.
+        numbers.push(randomNumber);
+    }
+    const frecuencias = numbers.reduce((frecuencia, elemento) => {
+      frecuencia[elemento] = (frecuencia[elemento] || 0) + 1;
+      return frecuencia;
+    }, {});
+    console.log(frecuencias);
+  </script>
+</body>
+</html>
+<!--  const frecuencias => Esto declara una variable llamada "frecuencias" que almacenará el objeto de frecuencias generado.
+      numbers.reduce((frecuencia, elemento) => { ... }, {}) => Utiliza el método "reduce()" en el array "numbers". "reduce()" itera sobre cada elemento del array y acumula un resultado, en este caso, un objeto de frecuencias. El segundo argumento de "reduce()" ("{}") es el valor inicial del acumulador, en este caso, un objeto vacío.
+      (frecuencia, elemento) => { ... } => Esta es la función de reducción (callback). Toma dos parámetros: "frecuencia", que es el acumulador que se actualizará en cada iteración, y "elemento", que es el valor actual del array en cada iteración.
+      frecuencia[elemento] = (frecuencia[elemento] || 0) + 1; => Dentro de la función de reducción, esta línea actualiza el objeto "frecuencia". Si "elemento" ya existe como clave en el objeto "frecuencia", se incrementa su valor en 1; de lo contrario, se inicializa en 1.
+      return frecuencia; => Devuelve el objeto "frecuencia" actualizado, que se utilizará como acumulador en la siguiente iteración o se devolverá como resultado final del método "reduce()". -->

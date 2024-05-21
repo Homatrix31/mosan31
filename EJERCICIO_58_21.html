@@ -1,0 +1,63 @@
+﻿<!-- EJERCICIO 58 (EJERCICIO 21) – Crear un código HTML+CSS+JavaScript que pida introducir un número del 1 al 7. Si el número introducido es correcto, se mostrará el día de la semana correspondiente, y, en caso contrario, se mostrará un mensaje indicando que el número introducido no es válido. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Días de la semana</title>
+	<style>
+        body {
+            font-family: Arial, sans-serif;
+			text-align: center;
+        }
+        input, button {
+            font-size: 20px;
+        }
+        #resultado {
+            margin-top: 20px;
+			margin-bottom: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Introduzca un número del 1 al 7</h1>
+    <input type="number" id="numero" placeholder="Introduzca un número" min="1" max="7">
+    <button id="boton">Mostrar el día de la semana</button>
+    <div id="resultado"></div>
+    <script type="text/javascript">
+        document.getElementById("boton").addEventListener("click", function() {
+            let numero = document.getElementById("numero").value;
+            let resultado = document.getElementById("resultado");
+            let dia;
+            switch (parseInt(numero)) {
+                case 1:
+                    dia = "Lunes";
+                    break;
+                case 2:
+                    dia = "Martes";
+                    break;
+                case 3:
+                    dia = "Miércoles";
+                    break;
+                case 4:
+                    dia = "Jueves";
+                    break;
+                case 5:
+                    dia = "Viernes";
+                    break;
+                case 6:
+                    dia = "Sábado";
+                    break;
+                case 7:
+                    dia = "Domingo";
+                    break;
+                default:
+                    dia = "El número introducido no es válido.";
+            }
+            resultado.innerHTML = dia;
+        });
+    </script>
+</body>
+</html>

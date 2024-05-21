@@ -1,0 +1,52 @@
+﻿<!-- EJERCICIO 59 (EJERCICIO 23) – Crear un código HTML+CSS+JavaScript que pueda determinar si un número es o no primo (número primo es un número natural mayor que 1 que sólo es divisible entre 1 y sí mismo). -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de números primos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        input, button {
+            font-size: 20px;
+        }
+        #resultado {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Verificador de números primos</h1>
+    <input type="number" id="numero" placeholder="Introduzca un número">
+    <button onclick="verificarPrimo()">Verificar</button>
+    <div id="resultado"></div>
+    <script type="text/javascript">
+        function verificarPrimo() {
+            let numero = document.getElementById("numero").value;
+            let resultado = document.getElementById("resultado");
+            let esPrimo = true;
+            if (numero < 2) {
+                esPrimo = false;
+            } else {
+                for (let i = 2; i < numero; i++) {
+                    if (numero % i === 0) {
+                        esPrimo = false;
+                        break;
+                    }
+                }
+            }
+            if (esPrimo) {
+                resultado.innerHTML = "El número " + numero + " es primo.";
+            } else {
+                resultado.innerHTML = "El número " + numero + " no es primo.";
+            }
+        }
+    </script>
+</body>
+</html>

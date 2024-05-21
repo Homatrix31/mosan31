@@ -1,0 +1,86 @@
+﻿<!-- EJERCICIO 67 (EJERCICIO 29 "EXTRA") – Crear un código HTML+CSS+JavaScript del juego " Piedra, Papel, Tijeras, Lagarto, Spock " para dos jugadores con la estructura de control " if ". -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel, Tijeras, Lagarto o Spock</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        button {
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px 20px;
+            margin: 10px; /* 1em = 16px */
+        }
+
+        #resultado {
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Piedra, Papel, Tijeras, Lagarto o Spock</h1>
+
+    <p>Jugador 1:</p>
+    <button onclick="jugar('piedra')">Piedra</button>
+    <button onclick="jugar('papel')">Papel</button>
+    <button onclick="jugar('tijeras')">Tijeras</button>
+    <button onclick="jugar('lagarto')">Lagarto</button>
+    <button onclick="jugar('spock')">Spock</button>
+
+    <p>Jugador 2:</p>
+    <button onclick="jugar('piedra', true)">Piedra</button>
+    <button onclick="jugar('papel', true)">Papel</button>
+    <button onclick="jugar('tijeras', true)">Tijeras</button>
+    <button onclick="jugar('lagarto', true)">Lagarto</button>
+    <button onclick="jugar('spock', true)">Spock</button>
+
+    <div id="resultado"></div>
+
+    <script type="text/javascript">
+        let eleccionJugador1 = '';
+        let eleccionJugador2 = '';
+
+        function jugar(opcion, esJugador2 = false) {
+            if (esJugador2) {
+                eleccionJugador2 = opcion;
+            } else {
+                eleccionJugador1 = opcion;
+            }
+
+            if (eleccionJugador1 && eleccionJugador2) {
+                let resultado = '';
+                if (eleccionJugador1 === eleccionJugador2) {
+                    resultado = 'Empate';
+                } else if (
+                    (eleccionJugador1 === 'piedra' && (eleccionJugador2 === 'tijeras' || eleccionJugador2 === 'lagarto')) ||
+                    (eleccionJugador1 === 'papel' && (eleccionJugador2 === 'piedra' || eleccionJugador2 === 'spock')) ||
+                    (eleccionJugador1 === 'tijeras' && (eleccionJugador2 === 'papel' || eleccionJugador2 === 'lagarto')) ||
+                    (eleccionJugador1 === 'lagarto' && (eleccionJugador2 === 'papel' || eleccionJugador2 === 'spock')) ||
+                    (eleccionJugador1 === 'spock' && (eleccionJugador2 === 'piedra' || eleccionJugador2 === 'tijeras'))
+                ) {
+                    resultado = 'Jugador 1 gana';
+                } else {
+                    resultado = 'Jugador 2 gana';
+                }
+                document.getElementById('resultado').innerHTML = resultado;
+                eleccionJugador1 = '';
+                eleccionJugador2 = '';
+            }
+        }
+    </script>
+</body>
+
+</html>

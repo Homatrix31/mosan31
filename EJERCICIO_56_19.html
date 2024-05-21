@@ -1,0 +1,41 @@
+﻿<!-- EJERCICIO 56 (EJERCICIO 19) – Crear un código HTML+CSS+JavaScript que pida introducir un número y mostrar la tabla de multiplicar, desde 1 hasta 10, del número introducido. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tabla de multiplicar</title>
+    <style>
+        body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+        }
+		input, button {
+			font-size: 20px;
+		}
+        #resultado {
+			margin-top: 20px;
+			margin-bottom: 20px;
+			font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tabla de multiplicar</h1>
+    <p>Introduzca un número:</p>
+    <input type="number" id="numero" placeholder="Introduzca un número" min="1">
+    <button onclick="mostrarTabla()">Mostrar tabla</button>
+    <div id="resultado"></div>
+    <script type="text/javascript">
+        function mostrarTabla() {
+            let numero = document.getElementById("numero").value;
+            let resultado = "";
+            for (let i = 1; i <= 10; i++) {
+                resultado = resultado.concat(numero, " x ", i, " = ", numero * i, "<br/>");
+            } // El método concat() combina dos o más cadenas de texto y devuelve una cadena de texto nueva.
+            document.getElementById("resultado").innerHTML = resultado;
+        }
+    </script>
+</body>
+</html>

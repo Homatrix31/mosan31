@@ -1,0 +1,47 @@
+﻿<!-- EJERCICIO 60 (EJERCICIO 24) – Crear un código HTML+CSS+JavaScript que genere las tablas de multiplicar del 1 al 10. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas de multiplicar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        input, button {
+            font-size: 20px;
+        }
+        #resultado {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tablas de multiplicar</h1>
+    <div id="resultado"></div>
+    <script type="text/javascript">
+
+        window.onload = function() {
+            mostrarTablas();
+        }
+        // "window.onload" es un evento en JavaScript que se activa cuando se completa la carga de la ventana o página web.
+        // Por lo tanto, espera a que la ventana (página web) haya terminado de cargar completamente (window.onload) para después llamar y ejecutar la función "mostrarTablas()".
+
+        function mostrarTablas() {
+            let resultado = "";
+            for (let numero = 1; numero <= 10; numero++) {
+                resultado += "<h3>Tabla del " + numero + "</h3>";
+                for (let i = 1; i <= 10; i++) {
+                    resultado += numero + " x " + i + " = " + numero * i + "<br/>";
+                }
+            }
+            document.getElementById("resultado").innerHTML = resultado;
+        }
+    </script>
+</body>
+</html>

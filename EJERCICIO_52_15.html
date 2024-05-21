@@ -1,0 +1,44 @@
+﻿<!-- EJERCICIO 52 (EJERCICIO 15) – Crear un código HTML+CSS+JavaScript que pida introducir un número y que determine si es positivo, negativo o cero: si el número introducido es positivo, se mostrará el mensaje " El número introducido es positivo " , si es negativo, se visualizará " El número introducido es negativo " , y, en el caso de que el número introducido sea cero, se mostrará " El número introducido es cero ". -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Verificar si un número es positivo, negativo o cero</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+		}
+		input, button {
+			font-size: 20px;
+		}
+		#resultado {
+			margin-top: 20px;
+			margin-bottom: 20px;
+			font-weight: bold;
+        }
+	</style>
+</head>
+<body>
+	<h1>Verificar si un número es positivo, negativo o cero</h1>
+	<input type="number" id="entradaNumero" placeholder="Introduzca un número">
+	<button onclick="verificarNumero()">Verificar</button>
+	<div id="resultado"></div>
+	<script type="text/javascript">
+		function verificarNumero() {
+			let entradaNumero = document.getElementById('entradaNumero');
+			let resultado = document.getElementById('resultado');
+			let numero = parseInt(entradaNumero.value, 10);
+			if (numero > 0) {
+				resultado.innerHTML = 'El número introducido es positivo';
+			} else if (numero < 0) {
+				resultado.innerHTML = 'El número introducido es negativo';
+			} else {
+				resultado.innerHTML = 'El número introducido es cero';
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿<!-- EJERCICIO 54 (EJERCICIO 17) – Crear un código HTML+CSS+JavaScript que pida introducir la nota de un examen y se evalúa si está aprobado o no: si la nota introducida es válida (entre 0 y 20), entonces se utiliza una estructura condicional anidada para determinar si el estudiante aprobó o no el examen. Tras esto, si la nota es mayor o igual a 10, se muestra un mensaje de felicitaciones, y, en caso contrario, se muestra un mensaje de reproche. Además, si la nota introducida no es válida, se muestra un mensaje de error pidiendo que se introduzca una nota válida. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Evaluación de notas de examen</title>
+    <style>
+        body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+        }
+		input, button {
+			font-size: 20px;
+		}
+		#resultado {
+			margin-top: 20px;
+			margin-bottom: 20px;
+			font-weight: bold;
+        }
+	</style>
+</head>
+<body>
+    <h1>Evaluación de notas de examen</h1>
+    <p>Introduzca la nota del examen (0-20):</p>
+    <input type="number" id="nota" placeholder="Introduzca un número" min="0" max="20">
+    <button onclick="evaluarNota()">Evaluar</button>
+    <div id="resultado"></div>
+    <script type="text/javascript">
+        function evaluarNota() {
+            let nota = parseInt(document.getElementById('nota').value);
+            let resultado = document.getElementById('resultado');
+            if (nota >= 0 && nota <= 20) {
+                if (nota >= 10) {
+                    resultado.innerHTML = '¡Felicitaciones! ¡Has aprobado el examen!';
+				} else {
+                    resultado.innerHTML = '¡Lo siento! ¡No has aprobado el examen!';
+				}
+            } else {
+                resultado.innerHTML = '¡Error! Por favor, introduzca una nota válida (0-20).';
+            }
+        }
+    </script>
+</body>
+</html>

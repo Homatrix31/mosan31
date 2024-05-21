@@ -1,0 +1,47 @@
+﻿<!-- EJERCICIO 57 (EJERCICIO 20) – Crear un código HTML+CSS+JavaScript que pida introducir números, de forma numerada, hasta que se introduzca el número cero para salir. Una vez que se haya introducido el número cero, se mostrará la suma total de los números introducidos. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma de números</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        input, button {
+            font-size: 20px;
+        }
+		#resultado {
+			margin-top: 20px;
+			margin-bottom: 20px;
+			font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Suma de números</h1>
+    <p>Introduzca números uno a uno. Para finalizar, introduzca el número "0".</p>
+    <input type="number" id="entradaNumero" placeholder="Introduzca un número">
+    <button onclick="agregarNumero()">Agregar</button>
+    <div id="resultado"></div>
+    <script type="text/javascript">
+        let numeros = [];
+        let sumaTotal = 0;
+        function agregarNumero() {
+            let numeroIntroducido = parseInt(document.getElementById("entradaNumero").value);
+            if (numeroIntroducido === 0) {
+                for (let i = 0; i < numeros.length; i++) {
+                    sumaTotal += numeros[i];
+                }
+                document.getElementById("resultado").innerHTML = "La suma total es: " + sumaTotal;
+            } else {
+                numeros.push(numeroIntroducido);
+            }
+            document.getElementById("entradaNumero").value = "";
+        }
+    </script>
+</body>
+</html>

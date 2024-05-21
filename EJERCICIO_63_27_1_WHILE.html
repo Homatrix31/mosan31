@@ -1,0 +1,44 @@
+﻿<!-- EJERCICIO 63 (EJERCICIO 27) – Crear un código HTML+CSS+JavaScript que pida introducir un número " de manera infinita " , pero que se pueda interrumpir cuando se introduzca la palabra " salir " o " SALIR " . -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucle infinito - Solicitar número</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        input, button {
+            font-size: 20px;
+        }
+        #resultado {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bucle infinito - Solicitar número</h1>
+    <button onclick="solicitarNumero()">Iniciar bucle</button>
+    <script type="text/javascript">
+        function solicitarNumero() {
+            let input="";
+            while (true) {
+                input = prompt("Introduzca un número o escriba 'salir' o 'SALIR' para detener el bucle:", "");
+                if (input === "salir" || input === "SALIR") {
+                    break;
+                }
+                if (!isNaN(parseInt(input))) {
+                    console.log("Número introducido:", input);
+                } else {
+                    alert("Por favor, introduzca un número válido.");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

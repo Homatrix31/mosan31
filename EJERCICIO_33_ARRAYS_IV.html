@@ -1,0 +1,34 @@
+﻿<!-- EJERCICIO 32 – Ahora "mutaremos" el array intercambiando el nombre del elemento con índice 3 con el nombre del elemento con índice 6 (versión "array"). -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <h1>Alumnos:</h1>
+  <script>
+    let alumnos = ["Alisson", "Álvaro", "Félix", "Irache", "Javier", "María", "Mei", "Orlando", "Valeri", "Yury"];
+    for (let i = 0; i < alumnos.length; i++) {
+      // console.log ("Nombre: " + alumnos[i]);
+      // alert("Nombre: " + alumnos[i]);
+      // prompt("Nombre: " + alumnos[i]);
+      document.write("Nombre: " + alumnos[i] + "<br/>"); // document.write("Nombre: " + alumnos[i] + '<br/>');
+      // La función "document.write()" permite escribir los nombres "directamente" en la página web.
+    }
+    document.write("<br/>");
+    let temp = alumnos[3]; // Se crea una variable para utilizarla de manera temporal.
+    alumnos[3] = alumnos[6];
+    alumnos[6] = temp;
+    temp="";
+    for (let i = 0; i < alumnos.length; i++) {
+      // console.log ("Nombre: " + alumnos[i]);
+      // alert("Nombre: " + alumnos[i]);
+      // prompt("Nombre: " + alumnos[i]);
+      document.write("Nombre: " + alumnos[i] + "<br/>"); // document.write("Nombre: " + alumnos[i] + '<br/>');
+      // La función "document.write()" permite escribir los nombres "directamente" en la página web.
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿<!-- EJERCICIO 62 (EJERCICIO 26) – Crear un código HTML+CSS+JavaScript que pida que se introduzca un número: si el número introducido es negativo, se interrumpirá el ciclo de repeticiones y el programa; si el número introducido es positivo, se calculará el doble del número introducido y se mostrará en pantalla. Si el usuario sigue introduciendo números positivos, el programa seguirá repitiendo el proceso de pedir un número y calcular su doble hasta que se pulse el número 0, momento en el que finalizará el programa. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular el doble</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let numero=0;
+        do {
+            numero = parseInt(prompt("Introduzca un número:"));
+            if (numero < 0) {
+                alert("Se ha interrumpido el ciclo de repeticiones.");
+                break;
+            } else if (numero === 0) {
+                alert("El programa ha finalizado.");
+                break;
+            } else {
+                let doble = numero * 2;
+                alert("El doble de " + numero + " es " + doble);
+            }
+        } while (numero !== 0);
+    </script>
+</body>
+</html>

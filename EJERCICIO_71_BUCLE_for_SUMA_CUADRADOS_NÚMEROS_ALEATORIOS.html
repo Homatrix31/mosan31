@@ -1,0 +1,54 @@
+﻿<!-- EJERCICIO 71: Crear un código HTML+CSS+JavaScript, con la estructura "for", que calcule la suma de los cuadrados de los elementos, generados aleatoriamente y visibles en pantalla, de un array. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suma de cuadrados</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    #resultado {
+      font-size: 20px;
+      font-weight: bold;
+      color: #444;
+      margin-top: 20px;
+    }
+    #numeros {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Suma de cuadrados de números</h1>
+  <div id="numeros"></div>
+  <div id="resultado"></div>
+  <script>
+    const numbers = [];
+    const arrayLength = 5; // Tamaño del array
+    for (let i = 0; i < arrayLength; i++) { // Rellenará el array "numbers" con 5 números aleatorios comprendidos entre 1 y 10 (ambos incluidos).
+      const randomNumber = Math.floor(Math.random() * 10) + 1;
+      // "Match.random()" generará números aleatorios, en este caso, un número aleatorio entero comprendido entre 1 y 10 (ambos incluidos).
+      // "Match.floor()" redondeará hacia abajo o por defecto al entero más cercano.
+      numbers.push(randomNumber);
+    }
+    let suma = 0;
+    for (let i = 0; i < numbers.length; i++) {
+      const number = numbers[i];
+      suma = suma + number ** 2;
+    }
+    console.log(suma);
+    document.getElementById('numeros').innerHTML = 'Los números del array son: ' + numbers.join();
+    // document.getElementById('numeros').innerHTML = 'Los números del array son: ' + numbers.join(', ');
+    // El método "join()" crea y devuelve una nueva cadena al concatenar todos los elementos (números) del array separados, por defecto, por comas (',').
+    // Si el array tiene solo un elemento, ese elemento se devolverá sin usar el separador.
+    document.getElementById('resultado').innerText = 'La suma de los cuadrados es: ' + suma;
+  </script>
+</body>
+</html>

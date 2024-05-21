@@ -1,0 +1,49 @@
+﻿<!-- EJERCICIO 64 (EJERCICIO 28) – Crear un código HTML+CSS+JavaScript que genere el factorial del número introducido por teclado. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        input,
+        button {
+            font-size: 20px;
+        }
+        #resultado {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Factorial - Solicitar número</h1>
+        <input type="number" id="numero" placeholder="Introduzca un número">
+        <button onclick="calcularFactorial()">Calcular factorial</button>
+        <div id="resultado"></div>
+    </div>
+    <script type="text/javascript">
+        function calcularFactorial() {
+            const numero = document.getElementById("numero").value;
+            let factorial = 1;
+            if (numero < 0) {
+                document.getElementById("resultado").innerHTML = "Error: No se puede calcular el factorial de un número negativo.";
+            } else if (numero == 0) {
+                document.getElementById("resultado").innerHTML = "El factorial de 0 es: 1";
+            } else {
+                for (let i = 1; i <= numero; i++) {
+                    factorial *= i;
+                }
+                document.getElementById("resultado").innerHTML = "El factorial de " + numero + " es: " + factorial;
+            }
+        }
+    </script>
+</body>
+</html>

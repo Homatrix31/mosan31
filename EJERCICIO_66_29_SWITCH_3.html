@@ -1,0 +1,86 @@
+﻿<!-- EJERCICIO 66 (EJERCICIO 29) – Crear un código HTML+CSS+JavaScript del juego " Piedra, Papel o Tijeras " para dos jugadores con la estructura de control " switch ". -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel o Tijeras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #resultado {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Piedra, Papel o Tijeras</h1>
+
+    <div id="resultado"></div>
+
+    <script>
+        let jugador1 = 0;
+        let jugador2 = 0;
+
+        while (jugador1 === jugador2) {
+            console.log("Jugador 1, elige una opción:");
+            console.log("1. Piedra");
+            console.log("2. Papel");
+            console.log("3. Tijeras");
+            jugador1 = parseInt(prompt("Selecciona tu opción (1, 2 ó 3):"));
+
+            console.log("Jugador 2, elige una opción:");
+            console.log("1. Piedra");
+            console.log("2. Papel");
+            console.log("3. Tijeras");
+            jugador2 = parseInt(prompt("Selecciona tu opción (1, 2 ó 3):"));
+
+            let resultado = (jugador1 - jugador2 + 3) % 3;
+
+            switch (resultado) {
+                case 0:
+                    console.log("¡Empate!");
+                    document.getElementById('resultado').innerHTML = "¡Empate!";
+                    break;
+                case 1:
+                    console.log("¡Jugador 1 gana!");
+                    document.getElementById('resultado').innerHTML = "¡Jugador 1 gana!";
+                    break;
+                case 2:
+                    console.log("¡Jugador 2 gana!");
+                    document.getElementById('resultado').innerHTML = "¡Jugador 2 gana!";
+                    break;
+                default:
+                    console.log("Opción no válida, intenta de nuevo.");
+                    document.getElementById('resultado').innerHTML = "Opción no válida, intenta de nuevo.";
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+<!--
+    let resultado = (jugador1 - jugador2 + 3) % 3;
+
+    // Esta expresión calcula el resultado del juego de piedra, papel o tijeras basado en las elecciones de los jugadores:
+
+        // (jugador1 - jugador2): Resta la elección del jugador 2 de la elección del jugador 1. Esto determina la diferencia entre las elecciones de los jugadores.
+
+        // + 3: Se agrega 3 para garantizar que el resultado esté en el rango de 0 a 2, independientemente de si el resultado de la resta es negativo.
+
+        // % 3: Se utiliza el operador de módulo para obtener el resto de la división por 3, lo que asegura que el resultado final esté en el rango de 0 a 2.
+
+    // Por lo tanto, el resultado será 0 en caso de empate, 1 si el jugador 1 gana y 2 si el jugador 2 gana.
+
+-->

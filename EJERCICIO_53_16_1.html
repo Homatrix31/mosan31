@@ -1,0 +1,27 @@
+﻿<!-- EJERCICIO 53 (EJERCICIO 16) – Crear un código HTML+CSS+JavaScript que pida introducir un número y que determine si es par o impar: si el número introducido es par, se mostrará el mensaje " El número introducido es par " , y si el número introducido es impar, se visualizará el mensaje " El número introducido es impar ". -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Par o Impar</title>
+</head>
+<body>
+    <script>
+        // do {
+        let numero = parseInt(prompt("Introduzca un número:"));
+        // } while (numero!=0);
+        if (numero % 2 === 0) {
+            alert("El número es par");
+        } else {
+            alert("El número es impar");
+        }
+    </script>
+</body>
+</html>
+
+<!--
+    Si se introduce el valor numérico "0", el código mostrará "El número introducido es par", ya que 0 es considerado un número par.
+    Esto se debe a que cualquier número que sea divisible por 2 sin resto es considerado par, y 0 cumple con esta condición (0 % 2 === 0).
+-->

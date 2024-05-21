@@ -1,0 +1,47 @@
+﻿<!-- EJERCICIO 62 (EJERCICIO 26) – Crear un código HTML+CSS+JavaScript que pida que se introduzca un número: si el número introducido es negativo, se interrumpirá el ciclo de repeticiones y el programa; si el número introducido es positivo, se calculará el doble del número introducido y se mostrará en pantalla. Si el usuario sigue introduciendo números positivos, el programa seguirá repitiendo el proceso de pedir un número y calcular su doble hasta que se pulse el número 0, momento en el que finalizará el programa. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular el doble</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        input, button {
+            font-size: 20px;
+        }   
+        #resultado {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora del doble</h1>
+    <p>Introduzca un número:</p>
+    <input type="number" id="numero" placeholder="Introduzca un número">
+    <button onclick="calcularDoble()">Calcular doble</button>
+    <div id="resultado"></div>
+    <script type="text/javascript">
+        function calcularDoble() {
+            let numero = parseInt(document.getElementById("numero").value);
+            let resultado = document.getElementById("resultado");
+            if (numero < 0) {
+                resultado.innerHTML = "Se ha interrumpido el ciclo de repeticiones.";
+                return;
+            } else if (numero === 0) {
+                resultado.innerHTML = "El programa ha finalizado.";
+                return;
+            } else {
+                let doble = numero * 2;
+                resultado.innerHTML = "El doble de " + numero + " es " + doble;
+            }
+        }
+    </script>
+</body>
+</html>
